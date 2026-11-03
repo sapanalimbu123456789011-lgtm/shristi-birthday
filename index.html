@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Shristi Panta!</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffe5ec 0%, #ffc2d1 50%, #ffb3c6 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        #lock-screen {
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 20px 45px rgba(255, 75, 110, 0.2);
+            padding: 40px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            border: 3px solid #ff85a2;
+            z-index: 100;
+            display: block;
+        }
+
+        #lock-screen h2 {
+            color: #ff477e;
+            margin-bottom: 20px;
+        }
+
+        .lock-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        #password-input {
+            width: 80%;
+            padding: 12px 20px;
+            font-size: 1.2rem;
+            border: 2px solid #ffc2d1;
+            border-radius: 50px;
+            text-align: center;
+            outline: none;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        #password-input:focus {
+            border-color: #ff477e;
+            box-shadow: 0 0 10px rgba(255, 71, 126, 0.2);
+        }
+
+        .unlock-btn {
+            background: linear-gradient(45deg, #ff477e, #ff7675);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 71, 126, 0.3);
+        }
+
+        #main-card {
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 20px 45px rgba(255, 75, 110, 0.2);
+            padding: 35px 25px;
+            text-align: center;
+            max-width: 460px;
+            width: 100%;
+            border: 3px solid #ff85a2;
+            z-index: 10;
+            display: none;
+            animation: bounceIn 1.2s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: translateY(50px); opacity: 0; }
+            60% { transform: translateY(-10px); opacity: 1; }
+            100% { transform: translateY(0); }
+        }
+
+        .photo-frame {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid #ff85a2;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            left: 0;
+            top: 0;
+            animation: imageFade 6s infinite alternate ease-in-out;
+        }
+
+        .photo-frame img:nth-child(2) {
+            animation-delay: 3s;
+        }
+
+        @keyframes imageFade {
+            0%, 45% { opacity: 1; z-index: 2; }
+            55%, 100% { opacity: 0; z-index: 1; }
+        }
+
+        h1 {
+            color: #ff477e;
+            font-size: 2.1rem;
+            margin: 0 0 20px 0;
+        }
+
+        .view-video-btn {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+            transition: 0.3s ease;
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .view-video-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.5);
+        }
+
+        .video-container {
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 3px solid #ffc2d1;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            background: #000;
+            display: none;
+        }
+
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+
+        .celebrate-btn {
+            background: linear-gradient(45deg, #ff477e, #ff7675);
+            color: white;
+            border: none;
+            padding: 16px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(255, 71, 126, 0.3);
+            transition: 0.3s ease;
+            line-height: 1.4;
+            width: 100%;
+            display: block;
+        }
+
+        .celebrate-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 25px rgba(255, 71, 126, 0.5);
+        }
+
+        .footer {
+            font-size: 0.8rem;
+            color: #a0aec0;
+            margin-top: 25px;
+        }
+
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            font-size: 2rem;
+            animation: floatUp 4s linear infinite;
+            z-index: 1;
+            opacity: 0.8;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-110vh) rotate(20deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- लक स्क्रिन -->
+    <div id="lock-screen">
+        <div class="lock-icon">🔒</div>
+        <h2>Secret Birthday Box</h2>
+        <p style="color: #718096; margin-bottom: 20px;">यो बक्स खोल्न पासवर्ड हाल्नुहोस्।</p>
+        <input type="password" id="password-input" placeholder="Passcode हाल्नुहोस्...">
+        <br>
+        <button class="unlock-btn" onclick="checkPassword()">Unlock Box 🔑</button>
+    </div>
+
+    <!-- मुख्य बर्थडे कार्ड -->
+    <div id="main-card">
+        
+        <div class="photo-frame">
+            <!-- नोट: अनलाइन चल्नका लागि यो फाइल पनि त्यही अनलाइन फोल्डरमै बस्नुपर्छ -->
+            <img src="photo1.png" alt="Shristi Panta 1" onerror="this.src='photo1.jpg'">
+            <img src="photo2.png" alt="Shristi Panta 2" onerror="this.src='photo2.jpg'">
+        </div>
+
+        <h1>Happy Birthday, Shristi Panta! 🎂✨</h1>
+
+        <button class="view-video-btn" id="revealBtn" onclick="revealVideo()">
+            🎬 Watch Birthday Video 🎬
+        </button>
+
+        <div class="video-container" id="videoBox">
+            <video id="myVideo" controls preload="metadata">
+                <source src="birthday_video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <button class="celebrate-btn" onclick="startCelebration()">
+            ✨ जन्मदिनको लाखौं🎉 शुभकामना सृष्टि❤️ Have a fantastic day ahead! 🎉🎵
+        </button>
+
+        <div class="footer">Created with Code for Shristi 💖</div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var enteredPassword = document.getElementById("password-input").value;
+            if (enteredPassword === "1432") {
+                document.getElementById("lock-screen").style.display = "none";
+                document.getElementById("main-card").style.display = "block";
+            } else {
+                alert("❌ गलत पासवर्ड! कृपया सही कोड हाल्नुहोस्।");
+            }
+        }
+
+        function revealVideo() {
+            document.getElementById("videoBox").style.display = "block";
+            document.getElementById("revealBtn").style.display = "none";
+            var video = document.getElementById("myVideo");
+            video.play().catch(function(error) { console.log("Auto-play prevented"); });
+        }
+
+        function startCelebration() {
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const balloon = document.createElement('div');
+                    balloon.className = 'balloon';
+                    balloon.innerText = ['🎈', '🎉', '✨', '💖'][Math.floor(Math.random() * 4)];
+                    balloon.style.left = Math.random() * 100 + 'vw';
+                    balloon.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                    document.body.appendChild(balloon);
+                    setTimeout(() => balloon.remove(), 5000);
+                }, i * 250);
+            }
+        }
+    </script>
+
+</body>
+</html>
